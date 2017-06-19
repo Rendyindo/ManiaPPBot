@@ -8,7 +8,7 @@ public class ApiDecoder {
 	private static int starrate;
 	private static double perfectw;
 	
-	public boolean decode (String sJSON)
+	public static boolean decode (String sJSON)
 	{
 		boolean success;
 		try{
@@ -107,17 +107,17 @@ public class ApiDecoder {
 		return success;
 	}
 	
-	public int getStarRate()
+	public static int getStarRate()
 	{
 		return starrate;
 	}
 
-	public int getOD()
+	public static int getOD()
 	{
 		return od;
 	}
 	
-	public double getPerfectWindow()
+	public static double getPerfectWindow()
 	{
 		return perfectw;
 	}

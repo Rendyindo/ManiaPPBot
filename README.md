@@ -1,2 +1,2 @@
 # ManiaPPBot
-Tillerino for mania, but the calculation is fucked up atm (lol)
+Tillerino for mania, but I dont get anything for pircbotx, so only calculation is avaible atm.

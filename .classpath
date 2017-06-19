@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/RendyAK/Desktop/commons-io-2.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/RendyAK/Desktop/commons-lang3-3.6.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/RendyAK/Downloads/pircbotx-2.1.jar" sourcepath="C:/Users/RendyAK/Desktop/pircx"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/RendyAK/Downloads/guava-22.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/RendyAK/Desktop/commons-codec-1.10.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/RendyAK/Desktop/slf4j-simple-1.8.0-alpha2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/RendyAK/Desktop/slf4j-api-1.8.0-alpha2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

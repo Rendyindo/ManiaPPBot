@@ -11,18 +11,23 @@ import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 
+import javax.naming.MalformedLinkException;
+
+import org.apache.commons.io.*;
+
 public class osuFile {
 	private static BufferedReader reader;
-	private String string;
+	private static String string;
+	private Object rbc;
 	private static int Objects;
 	
-	public String cutText(String osufile){
+	public static String cutText(String osufile){
 	    boolean matchFound = false;
 	    StringBuilder output = new StringBuilder();
 	    try {
 	        reader = new BufferedReader(
 	                new StringReader(osufile));
-	    } catch (Exception failed) { failed.printStacktrace(); }
+	    } catch (Exception failed) { failed.getStackTrace(); }
 
 
 	    try {
@@ -35,7 +40,7 @@ public class osuFile {
 	                 output.append(string).append("\\n");
 	            }
 	        }
-	     } catch (IOException e) { e.printStacktrace();}
+	     } catch (IOException e) { e.getStackTrace();}
 	     return output.toString();
 	}
 	
@@ -60,17 +65,33 @@ public class osuFile {
 	    }
 	}
 	
-	public static void getOsuFile(String osulink){
-		URL website = new URL(osulink);
-		ReadableByteChannel rbc = Channels.newChannel(website.openStream());
-		FileOutputStream fos = new FileOutputStream("temp.osu");
-		fos.getChannel(){transferFrom(rbc, 0, Long.MAX_VALUE);
+	public static void getOsuFile(final String filename, final String urlString)
+	        throws MalformedLinkException, IOException {
+	    BufferedInputStream in = null;
+	    FileOutputStream fout = null;
+	    try {
+	        in = new BufferedInputStream(new URL(urlString).openStream());
+	        fout = new FileOutputStream(filename);
+
+	        final byte data[] = new byte[1024];
+	        int count;
+	        while ((count = in.read(data, 0, 1024)) != -1) {
+	            fout.write(data, 0, count);
+	        }
+	    } finally {
+	        if (in != null) {
+	            in.close();
+	        }
+	        if (fout != null) {
+	            fout.close();
+	        }
+	    }
 	}
 	
-	public static void osuFile(String osulink){
-		getOsuFile(osulink);
-		String cutText = cutText("temp.osu");
-		Objects = countLines("temp.osu");
+	public static int doAll(String osulink) throws IOException, MalformedLinkException{
+		getOsuFile("temp.osu", osulink);
+		cutText("temp.osu");
+		return Objects = countLines("temp.osu");
 	}
 	
 	public int getObjects(){
